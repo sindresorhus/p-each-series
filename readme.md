@@ -54,7 +54,9 @@ Return value is ignored unless it's `Promise`, then it's awaited before continui
 ## Related
 
 - [p-map-series](https://github.com/sindresorhus/p-map-series) - Map over promises serially
+- [p-series](https://github.com/sindresorhus/p-series) - Run promise-returning & async functions in series
 - [p-pipe](https://github.com/sindresorhus/p-pipe) - Compose promise-returning & async functions into a reusable pipeline
+- [p-waterfall](https://github.com/sindresorhus/p-waterfall) - Run promise-returning & async functions in series, each passing its result to the next
 - [p-reduce](https://github.com/sindresorhus/p-reduce) - Reduce a list of values using promises into a promise for a value
 - [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently
 - [More…](https://github.com/sindresorhus/promise-fun)
