@@ -1,39 +1,39 @@
 import test from 'ava';
 import delay from 'delay';
 import timeSpan from 'time-span';
-import m from './';
+import pEachSeries from '.';
 
-const fixtureErr = new Error('fixture');
+const fixtureError = new Error('fixture');
 
 test('main', async t => {
-	let index = 0;
-	const ms = 100;
+	let currentIndex = 0;
+	const delayMs = 100;
 	const end = timeSpan();
 	const input = [Promise.resolve(1), 2, 3, Promise.resolve(4)];
 
-	const val = await m(input, async (x, i) => {
-		t.is(x, i + 1);
-		t.is(index, i);
-		index++;
+	const result = await pEachSeries(input, async (value, index) => {
+		t.is(value, index + 1);
+		t.is(currentIndex, index);
+		currentIndex++;
 
-		// ensure it can also return non-Promise values
-		if (i === 0) {
+		// Ensure it can also return non-Promise values
+		if (index === 0) {
 			return 'foo';
 		}
 
-		await delay(ms);
+		await delay(delayMs);
 
 		return 'foo';
 	});
 
-	t.deepEqual(val, input);
-	t.true(end() > (ms - 20));
+	t.deepEqual(result, input);
+	t.true(end() > (delayMs - 20));
 });
 
 test('rejection input rejects the promise', async t => {
-	t.throws(m([1, Promise.reject(fixtureErr)], () => {}), fixtureErr.message);
+	await t.throwsAsync(pEachSeries([1, Promise.reject(fixtureError)], () => {}), fixtureError.message);
 });
 
 test('handles empty iterable', async t => {
-	t.deepEqual(await m([]), []);
+	t.deepEqual(await pEachSeries([]), []);
 });
