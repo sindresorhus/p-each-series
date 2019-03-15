@@ -23,12 +23,13 @@ const keywords = [
 	'pony'
 ];
 
-const iterator = el => saveToDiskPromise(el); //=> Promise
+const iterator = async el => saveToDiskPromise(el);
 
-pEachSeries(keywords, iterator).then(result => {
+(async () => {
+	const result = await pEachSeries(keywords, iterator);
 	console.log(result);
 	//=> ['unicorn', 'rainbow', 'pony']
-});
+})();
 ```
 
 
