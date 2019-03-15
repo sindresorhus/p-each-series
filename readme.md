@@ -8,7 +8,7 @@ Useful as a side-effect iterator. Prefer [`p-map`](https://github.com/sindresorh
 ## Install
 
 ```
-$ npm install --save p-each-series
+$ npm install p-each-series
 ```
 
 
@@ -26,8 +26,7 @@ const keywords = [
 const iterator = async el => saveToDiskPromise(el);
 
 (async () => {
-	const result = await pEachSeries(keywords, iterator);
-	console.log(result);
+	console.log(await pEachSeries(keywords, iterator));
 	//=> ['unicorn', 'rainbow', 'pony']
 })();
 ```
@@ -41,7 +40,7 @@ Returns a `Promise` that is fulfilled when all promises in `input` and ones retu
 
 #### input
 
-Type: `Iterable<Promise|any>`
+Type: `Iterable<Promise | unknown>`
 
 Iterated over serially in the `iterator` function.
 
