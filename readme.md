@@ -18,12 +18,12 @@ $ npm install p-each-series
 const pEachSeries = require('p-each-series');
 
 const keywords = [
-	getTopKeyword() //=> Promise
+	getTopKeyword(), //=> Promise
 	'rainbow',
 	'pony'
 ];
 
-const iterator = async el => saveToDiskPromise(el);
+const iterator = async element => saveToDiskPromise(element);
 
 (async () => {
 	console.log(await pEachSeries(keywords, iterator));
