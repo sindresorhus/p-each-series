@@ -12,4 +12,5 @@ const pEachSeries = async (iterable, iterator) => {
 };
 
 module.exports = pEachSeries;
+// TODO: Remove this for the next major release
 module.exports.default = pEachSeries;
