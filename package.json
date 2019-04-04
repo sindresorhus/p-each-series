@@ -1,6 +1,6 @@
 {
 	"name": "p-each-series",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Iterate over promises serially",
 	"license": "MIT",
 	"repository": "sindresorhus/p-each-series",
