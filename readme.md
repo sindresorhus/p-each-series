@@ -50,6 +50,23 @@ Type: `Function`
 
 Return value is ignored unless it's `Promise`, then it's awaited before continuing with the next iteration.
 
+### pEachSeries.stop
+
+Stop iterating through items by returning this value from the iterator function.
+
+```js
+import pEachSeries = require('p-each-series');
+
+// Logs "a" and "b"
+await pEachSeries(['a', 'b', 'c'], value => {
+	console.log(value);
+
+	if (value === 'b') {
+		return pEachSeries.stop;
+	}
+});
+```
+
 
 ## Related
 

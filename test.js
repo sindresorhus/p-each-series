@@ -37,3 +37,22 @@ test('rejection input rejects the promise', async t => {
 test('handles empty iterable', async t => {
 	t.deepEqual(await pEachSeries([]), []);
 });
+
+test('allows stopping midway through', async t => {
+	const iteratedItems = [];
+
+	await pEachSeries([
+		'a',
+		'b',
+		'c',
+		'd'
+	], value => {
+		iteratedItems.push(value);
+
+		if (value === 'c') {
+			return pEachSeries.stop;
+		}
+	});
+
+	t.deepEqual(iteratedItems, ['a', 'b', 'c']);
+});

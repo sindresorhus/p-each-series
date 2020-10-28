@@ -29,6 +29,25 @@ declare const pEachSeries: {
 		iterator: (element: ValueType, index: number) => unknown
 	): Promise<ValueType[]>;
 
+	/**
+	Stop iterating through items by returning this value from the iterator function.
+
+	@example
+	```
+	import pEachSeries = require('p-each-series');
+
+	// Logs "a" and "b"
+	await pEachSeries(['a', 'b', 'c'], value => {
+		console.log(value);
+
+		if (value === 'b') {
+			return pEachSeries.stop;
+		}
+	});
+	```
+	*/
+	readonly stop: unique symbol
+
 	// TODO: Remove this for the next major release, refactor the whole definition to:
 	// declare function pEachSeries<ValueType>(
 	// 	input: Iterable<PromiseLike<ValueType> | ValueType>,
