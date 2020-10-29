@@ -52,7 +52,7 @@ Return value is ignored unless it's `Promise`, then it's awaited before continui
 
 ### pEachSeries.stop
 
-Stop iterating through items by returning this value from the iterator function.
+Stop iterating through items by returning `pEachSeries.stop` from the iterator function.
 
 ```js
 import pEachSeries = require('p-each-series');

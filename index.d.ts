@@ -36,7 +36,7 @@ declare const pEachSeries: {
 	): Promise<ValueType[]>;
 
 	/**
-	Stop iterating through items by returning this value from the iterator function.
+	Stop iterating through items by returning `pEachSeries.stop` from the iterator function.
 
 	@example
 	```
