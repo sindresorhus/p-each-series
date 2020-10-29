@@ -15,7 +15,7 @@ const pEachSeries = async (iterable, iterator) => {
 	return iterable;
 };
 
-pEachSeries.stop = Symbol('Stop');
+pEachSeries.stop = Symbol('pEachSeries.stop');
 
 module.exports = pEachSeries;
 // TODO: Remove this for the next major release
