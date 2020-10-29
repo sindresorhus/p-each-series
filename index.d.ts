@@ -32,7 +32,7 @@ declare const pEachSeries: {
 	*/
 	<ValueType>(
 		input: Iterable<PromiseLike<ValueType> | ValueType>,
-		iterator: (element: ValueType, index: number) => unknown
+		iterator: (element: ValueType, index: number) => pEachSeries.StopSymbol || unknown
 	): Promise<ValueType[]>;
 
 	/**
