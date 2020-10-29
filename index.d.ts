@@ -1,3 +1,9 @@
+declare const stop: unique symbol;
+
+declare namespace pEachSeries {
+	type StopSymbol = typeof stop;
+}
+
 declare const pEachSeries: {
 	/**
 	Iterate over promises serially.
@@ -46,7 +52,7 @@ declare const pEachSeries: {
 	});
 	```
 	*/
-	readonly stop: unique symbol
+	readonly stop: pEachSeries.StopSymbol;
 
 	// TODO: Remove this for the next major release, refactor the whole definition to:
 	// declare function pEachSeries<ValueType>(
