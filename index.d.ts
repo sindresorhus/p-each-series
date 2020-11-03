@@ -42,7 +42,7 @@ declare const pEachSeries: {
 	```
 	import pEachSeries = require('p-each-series');
 
-	// Logs "a" and "b"
+	// Logs `a` and `b`.
 	await pEachSeries(['a', 'b', 'c'], value => {
 		console.log(value);
 
