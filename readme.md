@@ -55,9 +55,9 @@ Return value is ignored unless it's `Promise`, then it's awaited before continui
 Stop iterating through items by returning `pEachSeries.stop` from the iterator function.
 
 ```js
-import pEachSeries = require('p-each-series');
+const pEachSeries = require('p-each-series');
 
-// Logs "a" and "b"
+// Logs `a` and `b`.
 await pEachSeries(['a', 'b', 'c'], value => {
 	console.log(value);
 
