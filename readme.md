@@ -58,13 +58,16 @@ Stop iterating through items by returning `pEachSeries.stop` from the iterator f
 const pEachSeries = require('p-each-series');
 
 // Logs `a` and `b`.
-await pEachSeries(['a', 'b', 'c'], value => {
+const result = await pEachSeries(['a', 'b', 'c'], value => {
 	console.log(value);
 
 	if (value === 'b') {
 		return pEachSeries.stop;
 	}
 });
+
+console.log(result);
+//=> ['a', 'b', 'c']
 ```
 
 
