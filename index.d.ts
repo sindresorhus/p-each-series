@@ -54,12 +54,7 @@ declare const pEachSeries: {
 	*/
 	readonly stop: pEachSeries.StopSymbol;
 
-	// TODO: Remove this for the next major release, refactor the whole definition to:
-	// declare function pEachSeries<ValueType>(
-	// 	input: Iterable<PromiseLike<ValueType> | ValueType>,
-	// 	iterator: (element: ValueType, index: number) => unknown
-	// ): Promise<ValueType[]>;
-	// export = pEachSeries;
+	// TODO: Remove this for the next major release
 	default: typeof pEachSeries;
 };
 
