@@ -1,4 +1,4 @@
-# p-each-series [![Build Status](https://travis-ci.org/sindresorhus/p-each-series.svg?branch=master)](https://travis-ci.org/sindresorhus/p-each-series)
+# p-each-series
 
 > Iterate over promises serially
 
