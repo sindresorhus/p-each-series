@@ -13,7 +13,7 @@ $ npm install p-each-series
 ## Usage
 
 ```js
-const pEachSeries = require('p-each-series');
+import pEachSeries from 'p-each-series';
 
 const keywords = [
 	getTopKeyword(), //=> Promise
@@ -23,10 +23,8 @@ const keywords = [
 
 const iterator = async element => saveToDiskPromise(element);
 
-(async () => {
-	console.log(await pEachSeries(keywords, iterator));
-	//=> ['unicorn', 'rainbow', 'pony']
-})();
+console.log(await pEachSeries(keywords, iterator));
+//=> ['unicorn', 'rainbow', 'pony']
 ```
 
 ## API
@@ -52,7 +50,7 @@ Return value is ignored unless it's `Promise`, then it's awaited before continui
 Stop iterating through items by returning `pEachSeries.stop` from the iterator function.
 
 ```js
-const pEachSeries = require('p-each-series');
+import pEachSeries from 'p-each-series';
 
 // Logs `a` and `b`.
 const result = await pEachSeries(['a', 'b', 'c'], value => {

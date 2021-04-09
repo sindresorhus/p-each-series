@@ -1,7 +1,7 @@
 import test from 'ava';
 import delay from 'delay';
 import timeSpan from 'time-span';
-import pEachSeries from '.';
+import pEachSeries from './index.js';
 
 const fixtureError = new Error('fixture');
 
@@ -31,7 +31,7 @@ test('main', async t => {
 });
 
 test('rejection input rejects the promise', async t => {
-	await t.throwsAsync(pEachSeries([1, Promise.reject(fixtureError)], () => {}), fixtureError.message);
+	await t.throwsAsync(pEachSeries([1, Promise.reject(fixtureError)], () => {}), {message: fixtureError.message});
 });
 
 test('handles empty iterable', async t => {

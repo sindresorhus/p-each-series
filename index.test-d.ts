@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import pEachSeries = require('.');
+import pEachSeries from './index.js';
 
 const keywords = [Promise.resolve('foo'), 'rainbow', 'pony'];
 

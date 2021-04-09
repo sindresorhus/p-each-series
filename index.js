@@ -1,5 +1,3 @@
-'use strict';
-
 const pEachSeries = async (iterable, iterator) => {
 	let index = 0;
 
@@ -17,6 +15,4 @@ const pEachSeries = async (iterable, iterator) => {
 
 pEachSeries.stop = Symbol('pEachSeries.stop');
 
-module.exports = pEachSeries;
-// TODO: Remove this for the next major release
-module.exports.default = pEachSeries;
+export default pEachSeries;
