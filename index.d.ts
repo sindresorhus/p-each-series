@@ -4,28 +4,6 @@ export type StopSymbol = typeof stop;
 
 declare const pEachSeries: {
 	/**
-	Stop iterating through items by returning `pEachSeries.stop` from the iterator function.
-
-	@example
-	```
-	import pEachSeries from 'p-each-series';
-
-	// Logs `a` and `b`.
-	const result = await pEachSeries(['a', 'b', 'c'], value => {
-		console.log(value);
-
-		if (value === 'b') {
-			return pEachSeries.stop;
-		}
-	});
-
-	console.log(result);
-	//=> ['a', 'b', 'c']
-	```
-	*/
-	readonly stop: StopSymbol;
-
-	/**
 	Iterate over promises serially.
 
 	@param input - Iterated over serially in the `iterator` function.
@@ -52,6 +30,28 @@ declare const pEachSeries: {
 		input: Iterable<PromiseLike<ValueType> | ValueType>,
 		iterator: (element: ValueType, index: number) => StopSymbol | unknown
 	): Promise<ValueType[]>;
+
+	/**
+	Stop iterating through items by returning `pEachSeries.stop` from the iterator function.
+
+	@example
+	```
+	import pEachSeries from 'p-each-series';
+
+	// Logs `a` and `b`.
+	const result = await pEachSeries(['a', 'b', 'c'], value => {
+		console.log(value);
+
+		if (value === 'b') {
+			return pEachSeries.stop;
+		}
+	});
+
+	console.log(result);
+	//=> ['a', 'b', 'c']
+	```
+	*/
+	readonly stop: StopSymbol;
 };
 
 export default pEachSeries;
